@@ -5,8 +5,10 @@
       {
         "key": "searchfield",
         "templateOptions": {
-          "label": "Search",
-          "placeholder": "Username or email address"
+          "label": "Search field (wildcard search in Display name, UserPrincipalName and mail)",
+          "placeholder": "Display name, UserPrincipalName, or mail (use * to search all users)",
+          "required": true,
+          "minLength": 1
         },
         "type": "input",
         "summaryVisibility": "Hide element",
@@ -23,27 +25,35 @@
             "columns": [
               {
                 "headerName": "Display Name",
-                "field": "DisplayName"
+                "field": "displayName"
               },
               {
                 "headerName": "User Principal Name",
-                "field": "UserPrincipalName"
+                "field": "userPrincipalName"
               },
               {
-                "headerName": "Enabled",
-                "field": "Enabled"
+                "headerName": "Account Enabled",
+                "field": "accountEnabled"
+              },
+              {
+                "headerName": "Mail",
+                "field": "mail"
+              },
+              {
+                "headerName": "Description",
+                "field": "description"
               },
               {
                 "headerName": "Department",
-                "field": "Department"
+                "field": "department"
               },
               {
-                "headerName": "Title",
-                "field": "Title"
+                "headerName": "Job Title",
+                "field": "jobTitle"
               },
               {
-                "headerName": "Id",
-                "field": "Id"
+                "headerName": "Company Name",
+                "field": "companyName"
               }
             ],
             "height": 300,
@@ -54,7 +64,7 @@
             "input": {
               "propertyInputs": [
                 {
-                  "propertyName": "searchUser",
+                  "propertyName": "searchValue",
                   "otherFieldValue": {
                     "otherFieldKey": "searchfield"
                   }
@@ -62,7 +72,7 @@
               ]
             }
           },
-          "useFilter": false,
+          "useFilter": true,
           "allowCsvDownload": true
         },
         "type": "grid",
@@ -70,66 +80,6 @@
         "requiresTemplateOptions": true,
         "requiresKey": true,
         "requiresDataSource": true
-      }
-    ]
-  },
-  {
-    "label": "Activate",
-    "fields": [
-      {
-        "key": "gridDetails",
-        "templateOptions": {
-          "label": "Basic attributes",
-          "required": false,
-          "grid": {
-            "columns": [
-              {
-                "headerName": "Name",
-                "field": "name"
-              },
-              {
-                "headerName": "Value",
-                "field": "value"
-              }
-            ],
-            "height": 350,
-            "rowSelection": "single"
-          },
-          "dataSourceConfig": {
-            "dataSourceGuid": "$dataSourceGuid_1",
-            "input": {
-              "propertyInputs": [
-                {
-                  "propertyName": "selectedUser",
-                  "otherFieldValue": {
-                    "otherFieldKey": "gridUsers"
-                  }
-                }
-              ]
-            }
-          },
-          "useFilter": false,
-          "allowCsvDownload": true
-        },
-        "type": "grid",
-        "summaryVisibility": "Hide element",
-        "requiresTemplateOptions": true,
-        "requiresKey": true,
-        "requiresDataSource": true
-      },
-      {
-        "templateOptions": {
-          "title": "By submitting this form, the user above will be activated in Entra",
-          "titleField": "",
-          "bannerType": "Info",
-          "useBody": false
-        },
-        "type": "textbanner",
-        "summaryVisibility": "Hide element",
-        "body": "Text Banner Content",
-        "requiresTemplateOptions": false,
-        "requiresKey": false,
-        "requiresDataSource": false
       }
     ]
   }
